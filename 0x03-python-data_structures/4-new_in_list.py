@@ -1,4 +1,4 @@
-#!/usr/bin python3
+#!/usr/bin/python3
 # Author: Benard Prosper Echebiri
 
 def new_in_list(my_list, idx, element):
