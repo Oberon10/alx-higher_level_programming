@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <Python.h>
 
 
@@ -42,7 +41,6 @@ void print_python_list_info(PyObject *p)
 
         }
 
-=======
 #include <stdio.h>
 #include <Python.h>
 
@@ -68,5 +66,4 @@ void print_python_list_info(PyObject *p)
 		item = PyList_GetItem(p, x);
 		printf("Element %ld: %s\n", x, Py_TYPE(item)->tp_name);
 	}
->>>>>>> 7dec54d1a14c6c500e51c30fd493a90975f7df6f
 }
