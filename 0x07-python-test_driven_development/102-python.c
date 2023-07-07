@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "Python.h"
+#include <Python.h>
 
 /**
  * print_python_string - Prints string information
@@ -28,7 +28,7 @@ void print_python_string(PyObject *p)
 	else
 		printf("  type: compact unicode object\n");
 
-	repr = PyObject_Repr(p);
+	str = PyObject_Repr(p);
 	str = PyUnicode_AsEncodedString(p, "utf-8", "~E~");
 	printf("  length: %ld\n", PyUnicode_GET_SIZE(p));
 	printf("  value: %s\n", PyBytes_AsString(str));
