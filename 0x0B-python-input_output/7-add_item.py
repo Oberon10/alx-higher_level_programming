@@ -27,7 +27,7 @@ def add_items_to_list(filename: str, items: List[str]):
         my_list = load_from_json_file(filename)
     else:
         my_list = []
-   
+
     my_list.extend(items)
     save_to_json_file(my_list, filename)
 
