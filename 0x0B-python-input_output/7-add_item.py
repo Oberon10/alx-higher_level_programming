@@ -1,20 +1,37 @@
 #!/usr/bin/python3
 """
-7-add_item module
+Script to add arguments to a list and save it to a JSON file.
 """
+
 import sys
 import json
-import os.path
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+from typing import List
+from os import path
 
-file = "add_item.json"
-json_list = []
 
-if os.path.exists(file):
-    json_list = load_from_json_file(file)
+def save_to_json_file(my_obj, filename):
+    """Save object to a JSON file."""
+    with open(filename, 'w') as file:
+        json.dump(my_obj, file)
 
-for i in range(1, len(sys.argv)):
-    json_list.append(sys.argv[i])
 
-save_to_json_file(json_list, file)
+def load_from_json_file(filename):
+    """Load object from a JSON file."""
+    with open(filename, 'r') as file:
+        return json.load(file)
+
+
+def add_items_to_list(filename: str, items: List[str]):
+    """Add items to a list and save it to a JSON file."""
+    if path.exists(filename):
+        my_list = load_from_json_file(filename)
+    else:
+        my_list = []
+    
+    my_list.extend(items)
+    save_to_json_file(my_list, filename)
+
+
+if __name__ == "__main__":
+    args = sys.argv[1:]
+    add_items_to_list("add_item.json", args)
