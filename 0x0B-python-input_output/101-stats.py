@@ -3,9 +3,7 @@
 Module for log parsing scripts.
 """
 
-
 import sys
-
 
 if __name__ == "__main__":
     size = [0]
@@ -29,6 +27,7 @@ if __name__ == "__main__":
         for k in sorted(codes.keys()):
             if codes[k]:
                 print("{}: {}".format(k, codes[k]))
+
     i = 1
     try:
         for line in sys.stdin:
